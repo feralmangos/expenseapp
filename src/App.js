@@ -1,6 +1,8 @@
 import { useState } from "react/cjs/react.development";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import Background from "./components/UI/Background/Background";
+import './components/UI/App.css'
 const crapData = [
   {
     id: 'e1',
@@ -29,7 +31,7 @@ const crapData = [
 ];
 
 const App = () => {
-  const [expenses, setExpenses] = useState(crapData)
+  const [expenses, setExpenses] = useState(crapData);
 
 
   const addExpenseHandler = expense => {
@@ -41,11 +43,13 @@ const App = () => {
     })
   }
 
-  return (
-    <div >
 
+
+  return (
+    <div className='wrapper'>
       <Expenses expenses={expenses} />
       <NewExpense onAddExpense={addExpenseHandler} />
+      <Background />
     </div>
   );
 }
